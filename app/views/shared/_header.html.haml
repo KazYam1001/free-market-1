@@ -38,7 +38,7 @@
           ブランドから探す
     .header-bottom-right
       -# ログイン済みだったら
-      - if false
+      - if user_signed_in?
         .header-bottom-right__button
           = link_to "" do
             = icon "fas", "heart", class:"header-bottom-right__button--gray"
