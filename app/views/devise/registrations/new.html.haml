@@ -2,7 +2,7 @@
   .block__menu
     会員情報入力
   .block
-    = form_with id: 'new_user', class: 'new_user', local: true do |f|
+    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
       .input-field
         .input-field-main
           = f.label :hoge, "ニックネーム"
