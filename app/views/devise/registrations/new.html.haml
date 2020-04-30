@@ -25,14 +25,14 @@
             %span.required-true
               必須
             %br
-            = f.password_field :password, required: true, placeholder: "6文字以上"
+            = f.password_field :password, required: true, placeholder: "アルファベットと数字を含む8~128字"
         .input-field
           .input-field-main
             = f.label :password_confirmation, "パスワード（確認）"
             %span.required-true
               必須
             %br
-            = f.password_field :password_confirmation, required: true, placeholder: "6文字以上"
+            = f.password_field :password_confirmation, required: true, placeholder: "アルファベットと数字を含む8~128字"
       .information
         .input-field-main
           .information__title
