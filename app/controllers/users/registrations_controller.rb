@@ -81,7 +81,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def check_recaptcha
-    redirect_to new_user_registration_path unless verify_recaptcha
+    redirect_to new_user_registration_path unless verify_recaptcha(message: "reCAPTCHAを承認してください")
   end
 
 end
