@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :first_name_reading, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :last_name_reading, presence: true, format: { with: /\A[\p{katakana}\p{blank}ーー]+\z/, message: 'はカタカナで入力してください。'}
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[\w-]{8,128}+\z/i }
+
+  has_one :sns_credential, dependent: :destroy
 end
