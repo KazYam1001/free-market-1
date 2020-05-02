@@ -41,6 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def select
+    @auth_text = "で登録する"
   end
 
   def confirm_phone
