@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   prepend_before_action :check_recaptcha, only: [:create]
+  before_action :authenticate_scope!, only: [:confirm_phone, :new_address, :create_address]
   layout 'no_menu'
 
   # GET /resource/sign_up
@@ -71,10 +72,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new_address
     @progress = 3
+    @address = Address.new
   end
 
-  def completed
+  def create_address
     @progress = 5
+    @address = Address.new(address_params)
+    unless @address.save  ## save!をsaveに変更
+      @progress = 3
+      render layout: 'no_menu', action: 'new_address' # レイアウトファイル指定
+    end
   end
 
   # protected
